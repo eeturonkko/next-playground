@@ -3,7 +3,7 @@ import { UserButton, SignInButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 function Header() {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
   return (
     <nav className=" border-gray-200 bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

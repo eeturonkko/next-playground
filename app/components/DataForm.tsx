@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { createData } from "../api/createData";
+import { useUser } from "@clerk/nextjs";
 
 export type userData = {
   username: string;
@@ -8,11 +9,8 @@ export type userData = {
 };
 
 function DataForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<userData>();
+  const { register, handleSubmit } = useForm<userData>();
+  const { user } = useUser();
 
   function onSubmitHandler(formData: userData) {
     createData(formData);
