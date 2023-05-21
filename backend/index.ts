@@ -15,13 +15,24 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
-app.post("/api/create", (req: Request, res: Response) => {
-  const { username, hobby } = req.body;
-  if (!username || !hobby) {
-    res.status(400).send("Missing username or hobby");
+app.post("/api/create", async (req: Request, res: Response) => {
+  const { username, hobby, userId } = req.body;
+  if (!username || !hobby || !userId) {
+    res.status(400).send("Missing username or hobby or userId");
   } else {
-    res.json(`username: ${username} hobby: ${hobby}`);
-    console.log(`username: ${username} hobby: ${hobby}`);
+    try {
+      const newUserData = await prisma.userData.create({
+        data: {
+          username,
+          hobby,
+          userId,
+        },
+      });
+      res.json(newUserData);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Something went wrong");
+    }
   }
 });
 

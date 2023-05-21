@@ -6,7 +6,10 @@ export async function createData(formData: userData, userId: string) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        userId,
+      }),
     });
     const data = await response.json();
     console.log(data);
