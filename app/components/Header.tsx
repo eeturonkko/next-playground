@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import { UserButton, SignInButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 function Header() {
+  const { isLoaded, isSignedIn, user } = useUser();
   return (
     <nav className=" border-gray-200 bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -26,14 +29,7 @@ function Header() {
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                href="/get-started"
-                className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
-              >
-                Get started
-              </Link>
-            </li>
+
             <li>
               <Link
                 href="/user"
@@ -41,6 +37,13 @@ function Header() {
               >
                 Submit Data
               </Link>
+            </li>
+            <li>
+              {isSignedIn ? (
+                <UserButton afterSignOutUrl="/" />
+              ) : (
+                <SignInButton />
+              )}
             </li>
           </ul>
         </div>
