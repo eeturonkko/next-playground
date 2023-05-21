@@ -42,7 +42,9 @@ function Header() {
               {isSignedIn ? (
                 <UserButton afterSignOutUrl="/" />
               ) : (
-                <SignInButton />
+                <div className="text-white">
+                  <SignInButton />
+                </div>
               )}
             </li>
           </ul>
