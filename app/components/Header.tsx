@@ -11,7 +11,7 @@ function Header() {
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-            Flowbite
+            DataCollector
           </span>
         </a>
 
@@ -27,12 +27,20 @@ function Header() {
               </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/get-started"
                 className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
               >
                 Get started
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/user"
+                className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
+              >
+                Submit Data
+              </Link>
             </li>
           </ul>
         </div>
