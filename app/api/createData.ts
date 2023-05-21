@@ -1,4 +1,4 @@
-import { userData } from "../components/SignInForm";
+import { userData } from "../components/DataForm";
 export async function createData(formData: userData) {
   try {
     const response = await fetch("http://localhost:5000/api/create", {

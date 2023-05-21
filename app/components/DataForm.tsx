@@ -7,7 +7,7 @@ export type userData = {
   hobby: string;
 };
 
-function SignInForm() {
+function DataForm() {
   const {
     register,
     handleSubmit,
@@ -63,4 +63,4 @@ function SignInForm() {
   );
 }
 
-export default SignInForm;
+export default DataForm;
