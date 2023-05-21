@@ -1,3 +1,4 @@
+import GradientButton from "./components/GradientButton";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-700">
@@ -10,6 +11,9 @@ export default function HomePage() {
           DataCollector is a new innovative way to get your data and show it to
           you!
         </p>
+        <div className="flex justify-center items-center mt-6">
+          <GradientButton text="Get Started" path="/sign-in" />
+        </div>
       </section>
     </main>
   );
