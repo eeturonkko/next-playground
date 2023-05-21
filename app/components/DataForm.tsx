@@ -13,7 +13,7 @@ function DataForm() {
   const { user } = useUser();
 
   function onSubmitHandler(formData: userData) {
-    createData(formData);
+    user ? createData(formData, user.id) : null;
   }
   return (
     <div className="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-800 border-gray-700">

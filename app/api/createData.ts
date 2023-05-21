@@ -1,5 +1,5 @@
 import { userData } from "../components/DataForm";
-export async function createData(formData: userData) {
+export async function createData(formData: userData, userId: string) {
   try {
     const response = await fetch("http://localhost:5000/api/create", {
       method: "POST",

@@ -13,6 +13,7 @@ datasource db {
 
 model UserData {
   id    String  @id @default(uuid())
-  username String @unique
+  username String 
   hobby String
+  userId String
 }
