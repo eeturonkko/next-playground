@@ -5,7 +5,7 @@ import Link from "next/link";
 function Header() {
   const { isSignedIn } = useUser();
   return (
-    <nav className=" border-gray-200 bg-gray-900">
+    <nav className=" border-gray-200 bg-gray-900 py-2">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" className="flex items-center">
           <img
