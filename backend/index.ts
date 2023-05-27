@@ -11,10 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
-
 app.post("/api/create", async (req: Request, res: Response) => {
   const { username, hobby, userId } = req.body;
   if (!username || !hobby || !userId) {
