@@ -10,7 +10,7 @@ function UserSubmissionsPage() {
             <UserDataCard username="MiracLe" hobby="Counter Strike" />
             <UserDataCard username="Inkku" hobby="Law" />
             <UserDataCard username="Loki" hobby="Being annoying" />
-            <UserDataCard username="Muuk" hobby="Being alos annoying" />
+            <UserDataCard username="Muuk" hobby="Also being annoying" />
             <UserDataCard username="Nane" hobby="Sleeping" />
           </div>
         </section>
