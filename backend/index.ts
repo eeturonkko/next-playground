@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import { getData, createData } from "./controllers/dataController";
 const cors = require("cors");
 const { PrismaClient } = require("@prisma/client");
 
@@ -11,26 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.post("/api/create", async (req: Request, res: Response) => {
-  const { username, hobby, userId } = req.body;
-  if (!username || !hobby || !userId) {
-    res.status(400).send("Missing username or hobby or userId");
-  } else {
-    try {
-      const newUserData = await prisma.userData.create({
-        data: {
-          username,
-          hobby,
-          userId,
-        },
-      });
-      res.json(newUserData);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Something went wrong");
-    }
-  }
-});
+app.get("/api/data", getData);
+app.post("/api/create", createData);
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
