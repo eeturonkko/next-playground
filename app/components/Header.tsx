@@ -38,15 +38,25 @@ function Header() {
                 Submit Data
               </Link>
             </li>
-            <li>
-              {isSignedIn ? (
-                <UserButton afterSignOutUrl="/" />
-              ) : (
-                <div className="text-white">
-                  <SignInButton />
-                </div>
-              )}
-            </li>
+            {isSignedIn ? (
+              <>
+                <li>
+                  <Link
+                    href="/my-data"
+                    className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
+                  >
+                    My Submissions
+                  </Link>
+                </li>
+                <li>
+                  <UserButton afterSignOutUrl="/" />
+                </li>
+              </>
+            ) : (
+              <div className="text-white">
+                <SignInButton />
+              </div>
+            )}
           </ul>
         </div>
       </div>
