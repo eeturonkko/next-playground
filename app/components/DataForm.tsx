@@ -16,7 +16,7 @@ function DataForm() {
     user ? createData(formData, user.id) : null;
   }
   return (
-    <div className="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-800 border-gray-700">
+    <div className="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-700 border-gray-700">
       <form className="space-y-6" onSubmit={handleSubmit(onSubmitHandler)}>
         <h5 className="text-xl font-medium text-white">
           Enter your username and hobby

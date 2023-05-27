@@ -3,7 +3,7 @@ import GradientButton from "./components/GradientButton";
 export default function HomePage() {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-800">
+      <main className="flex min-h-screen flex-col items-center justify-between p-24 ">
         <section>
           <h2 className="text-7xl font-bold text-white">
             You <span className="text-blue-500">submit</span> we

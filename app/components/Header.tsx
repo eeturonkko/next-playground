@@ -19,7 +19,7 @@ function Header() {
         </a>
 
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-gray-800 md:bg-gray-900 border-gray-700">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-900 border-gray-700">
             <li>
               <Link
                 href="/"
@@ -42,7 +42,7 @@ function Header() {
               <>
                 <li>
                   <Link
-                    href="/my-data"
+                    href="/my-submissions"
                     className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
                   >
                     My Submissions
