@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { createData } from "../api/createData";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export type userData = {
   username: string;
@@ -11,9 +12,11 @@ export type userData = {
 function DataForm() {
   const { register, handleSubmit } = useForm<userData>();
   const { user } = useUser();
+  const { push } = useRouter();
 
-  function onSubmitHandler(formData: userData) {
-    user ? createData(formData, user.id) : null;
+  async function onSubmitHandler(formData: userData) {
+    user ? await createData(formData, user.id) : null;
+    push("/my-submissions");
   }
   return (
     <div className="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-700 border-gray-700">
