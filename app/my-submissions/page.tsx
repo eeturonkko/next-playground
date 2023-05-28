@@ -30,18 +30,16 @@ function UserSubmissionsPage() {
   return (
     <>
       <main className="h-screen text-white">
-        <section className="flex flex-col items-center gap-4 container mx-auto mt-12 border border-red-600 border-dashed">
+        <section className="flex flex-col items-center gap-4 container mx-auto mt-12">
           <h1 className="text-center text-4xl">My Submissions</h1>
-          <div className="grid grid-cols-3 gap-4 ">
-            <div className="grid grid-cols-3 gap-4 ">
-              {userData.map((data, index) => (
-                <UserDataCard
-                  key={index}
-                  username={data.username}
-                  hobby={data.hobby}
-                />
-              ))}
-            </div>
+          <div className="grid grid-cols-3 gap-4 mt-6 ">
+            {userData.map((data, index) => (
+              <UserDataCard
+                key={index}
+                username={data.username}
+                hobby={data.hobby}
+              />
+            ))}
           </div>
         </section>
       </main>
