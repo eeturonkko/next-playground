@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import UserDataCard from "../components/UserDataCard";
 import getData from "../api/getData";
+import { useUser } from "@clerk/nextjs";
 
 type UserData = {
   username: string;
@@ -10,14 +11,17 @@ type UserData = {
 
 function UserSubmissionsPage() {
   const [userData, setUserData] = useState<UserData[]>([]);
+  const { user } = useUser();
+  const userId = user?.id;
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getData();
+      if (!userId) return;
+      const data = await getData(userId);
       setUserData(data);
     }
     fetchData();
-  }, []);
+  }, [userId]);
 
   return (
     <>

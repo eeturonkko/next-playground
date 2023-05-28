@@ -8,11 +8,11 @@ const prisma = new PrismaClient();
 // @Private route
 async function getData(req: Request, res: Response) {
   try {
-    const userId = req.cookies.__session;
+    const { userId } = req.body;
     if (!userId) {
       throw new Error("UNAUTHORIZED");
     } else {
-      const userData = await prisma.userData.findMany({
+      const userData = await prisma.userData.find({
         where: {
           userId: userId,
         },

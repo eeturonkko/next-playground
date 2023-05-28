@@ -1,15 +1,20 @@
 import express from "express";
-import cookieParser from "cookie-parser";
 import { getData, createData } from "./controllers/dataController";
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.get("/api/data", getData);
 app.post("/api/create", createData);
