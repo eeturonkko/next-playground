@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
@@ -7,16 +7,18 @@ const prisma = new PrismaClient();
 // Get all user data
 // @Private route
 async function getData(req: Request, res: Response) {
-  if (!req.body.userId) {
-    res.status(400).send("UNAUTHORIZED");
-  }
   try {
-    const userData = await prisma.userData.findUnique({
-      where: {
-        userId: req.body.userId,
-      },
-    });
-    res.status(200).json(userData);
+    const { userId } = req.body;
+    if (!userId) {
+      throw new Error("UNAUTHORIZED");
+    } else {
+      const userData = await prisma.userData.findMany({
+        where: {
+          userId: userId,
+        },
+      });
+      res.status(200).json(userData);
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Something went wrong");
