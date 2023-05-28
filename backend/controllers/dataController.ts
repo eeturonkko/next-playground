@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 // @Private route
 async function getData(req: Request, res: Response) {
   try {
-    const { userId } = req.body;
+    const userId = req.cookies.__session;
     if (!userId) {
       throw new Error("UNAUTHORIZED");
     } else {
