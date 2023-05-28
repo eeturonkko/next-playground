@@ -7,8 +7,15 @@ const prisma = new PrismaClient();
 // Get all user data
 // @Private route
 async function getData(req: Request, res: Response) {
+  if (!req.body.userId) {
+    res.status(400).send("UNAUTHORIZED");
+  }
   try {
-    const userData = await prisma.userData.findMany();
+    const userData = await prisma.userData.findUnique({
+      where: {
+        userId: req.body.userId,
+      },
+    });
     res.status(200).json(userData);
   } catch (error) {
     console.log(error);
