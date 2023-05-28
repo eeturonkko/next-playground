@@ -3,16 +3,16 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-// GET /api/data
+// GET /api/data/:userId
 // Get all user data
 // @Private route
 async function getData(req: Request, res: Response) {
   try {
-    const { userId } = req.body;
+    const userId = req.params.userId;
     if (!userId) {
       throw new Error("UNAUTHORIZED");
     } else {
-      const userData = await prisma.userData.find({
+      const userData = await prisma.userData.findMany({
         where: {
           userId: userId,
         },

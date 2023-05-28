@@ -1,6 +1,6 @@
 export default async function getData(userId: string) {
   try {
-    const response = await fetch("http://localhost:5000/api/data", {
+    const response = await fetch(`http://localhost:5000/api/data/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

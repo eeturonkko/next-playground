@@ -18,6 +18,10 @@ function UserSubmissionsPage() {
     async function fetchData() {
       if (!userId) return;
       const data = await getData(userId);
+      if (!data) {
+        console.log("Data is undefined or null");
+        return;
+      }
       setUserData(data);
     }
     fetchData();

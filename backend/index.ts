@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/api/data", getData);
+app.get("/api/data/:userId", getData);
 app.post("/api/create", createData);
 
 app.listen(PORT, () => {
