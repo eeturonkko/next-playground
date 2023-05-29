@@ -1,7 +1,11 @@
 import express from "express";
+require("dotenv").config();
 import { getData, createData } from "./controllers/dataController";
+import { authorize } from "./middleware/authorize";
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
+const { Clerk } = require("@clerk/clerk-sdk-node");
+const clerk = new Clerk({ apiKey: process.env.CLERK_API_KEY });
+module.exports.clerk = clerk;
 
 const app = express();
 const PORT = 5000;
@@ -12,7 +16,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
