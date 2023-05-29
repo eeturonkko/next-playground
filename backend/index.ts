@@ -3,9 +3,6 @@ require("dotenv").config();
 import { getData, createData } from "./controllers/dataController";
 import { authorize } from "./middleware/authorize";
 const cors = require("cors");
-const { Clerk } = require("@clerk/clerk-sdk-node");
-const clerk = new Clerk({ apiKey: process.env.CLERK_API_KEY });
-module.exports.clerk = clerk;
 
 const app = express();
 const PORT = 5000;
@@ -20,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/api/data/:userId", getData);
-app.post("/api/create", createData);
+app.post("/api/create", authorize, createData);
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);

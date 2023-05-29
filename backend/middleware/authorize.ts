@@ -1,5 +1,7 @@
+require("dotenv").config();
 import { Request, Response, NextFunction } from "express";
-const { clerk } = require("./index.ts");
+const { Clerk } = require("@clerk/clerk-sdk-node");
+const clerk = new Clerk({ apiKey: process.env.CLERK_API_KEY });
 
 export async function authorize(
   req: Request,
