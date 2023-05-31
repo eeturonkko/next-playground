@@ -34,8 +34,15 @@ function UserSubmissionsPage() {
     <>
       <main className="h-screen text-white">
         <section className="flex flex-col items-center gap-4 container mx-auto mt-12">
-          <h1 className="text-center text-4xl">My Submissions</h1>
-          <div className="grid grid-cols-3 gap-4 mt-6 ">
+          <h1 className="text-center text text-4xl font-semibold">
+            My Submissions
+          </h1>
+          <div className="grid grid-cols-3 gap-4 mt-6">
+            {userData.length === 0 && (
+              <p className="text-center text-xl col-span-3">
+                No submissions yet
+              </p>
+            )}
             {userData.map((data, index) => (
               <UserDataCard
                 key={index}

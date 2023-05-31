@@ -39,7 +39,7 @@ async function createData(req: Request, res: Response) {
       res.json(newUserData);
     } catch (error) {
       console.log(error);
-      res.status(500).send("Something went wrong");
+      res.status(500).send("Something went wrong!!");
     }
   }
 }
