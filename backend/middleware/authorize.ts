@@ -9,7 +9,7 @@ export async function authorize(
   next: NextFunction
 ) {
   try {
-    const userId = req.params.userId;
+    const userId = req.body.userId;
     const session = await clerk.sessions.verify(req, res);
     const sessionUserId = session.userId;
 

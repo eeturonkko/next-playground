@@ -13,8 +13,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/api/data/:userId", getData);
 app.post("/api/create", createData);
