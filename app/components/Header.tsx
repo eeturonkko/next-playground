@@ -7,10 +7,10 @@ function Header() {
   return (
     <nav className=" border-gray-200 bg-gray-900 py-2">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center justify-center">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 mr-3"
+            src="https://www.svgrepo.com/show/484308/white-bear.svg"
+            className="h-10 mr-3 pt-2"
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
