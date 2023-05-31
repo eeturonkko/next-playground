@@ -45,4 +45,22 @@ async function createData(req: Request, res: Response) {
   }
 }
 
-export { getData, createData };
+// DELETE /api/delete/:id
+// Delete selected user data
+// @Private route
+async function deleteData(req: Request, res: Response) {
+  try {
+    const id = req.params.id;
+    const deletedData = await prisma.userData.delete({
+      where: {
+        id,
+      },
+    });
+    res.json(deletedData);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Something went wrong");
+  }
+}
+
+export { getData, createData, deleteData };
