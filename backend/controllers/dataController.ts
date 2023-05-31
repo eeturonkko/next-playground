@@ -9,16 +9,12 @@ const prisma = new PrismaClient();
 async function getData(req: Request, res: Response) {
   try {
     const userId = req.params.userId;
-    if (!userId) {
-      throw new Error("UNAUTHORIZED");
-    } else {
-      const userData = await prisma.userData.findMany({
-        where: {
-          userId: userId,
-        },
-      });
-      res.status(200).json(userData);
-    }
+    const userData = await prisma.userData.findMany({
+      where: {
+        userId,
+      },
+    });
+    res.json(userData);
   } catch (error) {
     console.log(error);
     res.status(500).send("Something went wrong");
