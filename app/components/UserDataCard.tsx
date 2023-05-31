@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { deleteData } from "../api/deleteData";
 
 type UserDataCardProps = {
@@ -15,10 +14,7 @@ function UserDataCard({ username, hobby, id, onDelete }: UserDataCardProps) {
   }
 
   return (
-    <Link
-      href="#"
-      className="block max-w-sm p-8 rounded-lg shadow hover:bg-gray-600 bg-gray-700 border-gray-800 relative"
-    >
+    <div className="block max-w-sm p-8 rounded-lg shadow hover:bg-gray-600 bg-gray-700 border-gray-800 relative">
       <div className="absolute top-2 right-2">
         <button onClick={handleDelete} className="hover:text-gray-300">
           X
@@ -29,7 +25,7 @@ function UserDataCard({ username, hobby, id, onDelete }: UserDataCardProps) {
         {username}
       </h5>
       <p className="font-normal text-gray-400">{hobby}</p>
-    </Link>
+    </div>
   );
 }
 
