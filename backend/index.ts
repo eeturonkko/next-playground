@@ -1,6 +1,6 @@
 import express from "express";
 require("dotenv").config();
-import { getData, createData } from "./controllers/dataController";
+import { getData, createData, deleteData } from "./controllers/dataController";
 import { authorize } from "./middleware/authorize";
 const cors = require("cors");
 
@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/api/data/:userId", getData);
 app.post("/api/create", authorize, createData);
+app.delete("/api/delete/:id", deleteData);
 
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);

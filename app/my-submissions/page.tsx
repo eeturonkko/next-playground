@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import UserDataCard from "../components/UserDataCard";
 import getData from "../api/getData";
+import { deleteData } from "../api/deleteData";
 import { useUser } from "@clerk/nextjs";
 
 type UserData = {
   username: string;
   hobby: string;
+  id: string;
 };
 
 function UserSubmissionsPage() {
@@ -15,17 +17,18 @@ function UserSubmissionsPage() {
   const userId = user?.id;
 
   useEffect(() => {
-    async function fetchData() {
-      if (!userId) return;
-      const data = await getData(userId);
-      if (!data) {
-        console.log("Data is undefined or null");
-        return;
-      }
-      setUserData(data);
-    }
-    fetchData();
+    fetchData(); //
   }, [userId]);
+
+  async function fetchData() {
+    if (!userId) return;
+    const data = await getData(userId);
+    if (!data) {
+      console.log("Data is undefined or null");
+      return;
+    }
+    setUserData(data);
+  }
 
   return (
     <>
@@ -38,6 +41,8 @@ function UserSubmissionsPage() {
                 key={index}
                 username={data.username}
                 hobby={data.hobby}
+                id={data.id}
+                onDelete={fetchData}
               />
             ))}
           </div>
