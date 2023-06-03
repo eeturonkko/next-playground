@@ -1,10 +1,10 @@
-import React from "react";
+import IdeasForm from "../components/IdeasForm";
 
 function NewIdeasPage() {
   return (
     <>
-      <main className="h-screen text-white">
-        <h1 className="text-4xl">New Ideas</h1>
+      <main className=" text-white flex min-h-screen flex-col items-center justify-between p-24">
+        <IdeasForm />
       </main>
     </>
   );
