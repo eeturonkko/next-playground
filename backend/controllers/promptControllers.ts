@@ -30,7 +30,15 @@ async function createIdeas(req: Request, res: Response) {
       frequency_penalty: 0.0,
       presence_penalty: 0.0,
     });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    const { text } = completion.data.choices[0];
+    res.send(text);
+    /* const newPrompt = await prisma.prompt.create({
+      data: {
+        prompt: prompt,
+        userId: userId,
+        choices: choices
+      }
+    }) */
   } catch (error) {
     res.status(500).send("Something went wrong.");
   }
