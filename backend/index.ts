@@ -16,6 +16,8 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Routes for data submissions
+
 app.get("/api/data/:userId", getData);
 app.post("/api/create", createData);
 app.delete("/api/delete/:id", deleteData);
