@@ -17,3 +17,9 @@ model UserData {
   hobby String
   userId String
 }
+
+model Prompts {
+  id    String  @id @default(uuid())
+  prompt String
+  userId String
+}
