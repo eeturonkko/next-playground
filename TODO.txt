@@ -1,0 +1,4 @@
+TODO for the weekend 10-11.6
+
+Refactor code (try to get rid of useEffects etc. Make most of SSR and make code simple and clean)
+Work on the /new-ideas page. Use typewriter effect for the backend response.
