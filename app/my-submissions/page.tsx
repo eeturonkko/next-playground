@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import UserDataCard from "../components/UserDataCard";
 import getData from "../api/getData";
-import { deleteData } from "../api/deleteData";
 import { useUser } from "@clerk/nextjs";
 
 type UserData = {

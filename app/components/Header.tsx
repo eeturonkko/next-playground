@@ -49,14 +49,6 @@ function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/new-ideas"
-                    className="block py-2 pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 text-white"
-                  >
-                    New ideas
-                  </Link>
-                </li>
-                <li>
                   <UserButton afterSignOutUrl="/" />
                 </li>
               </>
