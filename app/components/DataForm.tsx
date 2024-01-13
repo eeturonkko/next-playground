@@ -15,9 +15,15 @@ function DataForm() {
   const { push } = useRouter();
 
   async function onSubmitHandler(formData: userData) {
-    user ? await createData(formData, user.id) : null;
+    if (!user) return;
+    try {
+      await createData(formData, user.id);
+    } catch (error) {
+      console.log(error);
+    }
     push("/my-submissions");
   }
+
   return (
     <div className="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-700 border-gray-700">
       <form className="space-y-6" onSubmit={handleSubmit(onSubmitHandler)}>
